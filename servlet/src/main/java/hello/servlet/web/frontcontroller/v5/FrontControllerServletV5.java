@@ -47,7 +47,8 @@ public class FrontControllerServletV5 extends HttpServlet {
 
         if (handler == null) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-            return; } 
+            return;
+        }
 
         MyHandlerAdapter adapter = getHandlerAdapter(handler);
 
@@ -66,7 +67,8 @@ public class FrontControllerServletV5 extends HttpServlet {
         for (MyHandlerAdapter adapter : handlerAdapters) {
             if (adapter.supports(handler)) {
                 return adapter;
-            } }
+            }
+        }
         throw new IllegalArgumentException("handleradapter를 찾을 수 없습니다. handler=" + handler);
     }
 
